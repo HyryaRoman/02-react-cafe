@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import type { Votes, VoteType } from "../types/votes.ts";
 import CafeInfo from "./CafeInfo.tsx";
+import VoteOptions from "./VoteOptions.tsx";
 import css from "./App.module.css";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
   return (
     <div className={css.app}>
       <CafeInfo />
+      <VoteOptions onVote={handleVote} onReset={resetVotes} canReset={true} />
     </div>
   );
 }

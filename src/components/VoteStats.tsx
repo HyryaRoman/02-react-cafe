@@ -5,7 +5,7 @@ interface VoteStatsProps {
   votes: Votes;
   totalVotes: number;
   positiveRate: number;
-};
+}
 
 function VoteStats(props: VoteStatsProps) {
   return (
@@ -20,10 +20,10 @@ function VoteStats(props: VoteStatsProps) {
         Bad: <strong>{props.votes.bad}</strong>
       </p>
       <p className={css.stat}>
-        Total: <strong>0</strong>
+        Total: <strong>{props.totalVotes}</strong>
       </p>
       <p className={css.stat}>
-        Positive: <strong>0%</strong>
+        Positive: <strong>{props.positiveRate}%</strong>
       </p>
     </div>
   );

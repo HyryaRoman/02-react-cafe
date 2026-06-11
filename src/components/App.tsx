@@ -28,11 +28,20 @@ function App() {
     });
   }
 
+  const totalVotes: number = votes.good + votes.neutral + votes.bad;
+  const positiveRate: number = totalVotes
+    ? Math.round((votes.good / totalVotes) * 100)
+    : 0;
+
   return (
     <div className={css.app}>
       <CafeInfo />
       <VoteOptions onVote={handleVote} onReset={resetVotes} canReset={true} />
-      <VoteStats votes={votes} totalVotes={0} positiveRate={0} />
+      <VoteStats
+        votes={votes}
+        totalVotes={totalVotes}
+        positiveRate={positiveRate}
+      />
     </div>
   );
 }

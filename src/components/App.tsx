@@ -4,6 +4,7 @@ import type { Votes, VoteType } from "../types/votes.ts";
 import CafeInfo from "./CafeInfo.tsx";
 import VoteOptions from "./VoteOptions.tsx";
 import VoteStats from "./VoteStats.tsx";
+import Notification from "./Notification.tsx";
 import css from "./App.module.css";
 
 function App() {
@@ -37,11 +38,15 @@ function App() {
     <div className={css.app}>
       <CafeInfo />
       <VoteOptions onVote={handleVote} onReset={resetVotes} canReset={true} />
-      <VoteStats
-        votes={votes}
-        totalVotes={totalVotes}
-        positiveRate={positiveRate}
-      />
+      {totalVotes > 0 ? (
+        <VoteStats
+          votes={votes}
+          totalVotes={totalVotes}
+          positiveRate={positiveRate}
+        />
+      ) : (
+        <Notification />
+      )}
     </div>
   );
 }
